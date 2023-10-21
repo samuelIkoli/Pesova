@@ -64,7 +64,7 @@ module.exports.updatePesova = async (req, res) => {
         console.log('body is', req.body)
         if (req.body.email) {
             return res.status(400).json({
-                message: "Can not update email"
+                message: "Can not update email, remove email from body"
             })
         }
         const pesova = await Pesova.findByIdAndUpdate(req.params.id, {
