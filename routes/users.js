@@ -11,6 +11,7 @@ const { createPesova, getAllPesovas, updatePesova, createCoverPhoto, getPesova }
 router.post("/pesova", upload.array('image', 10), createPesova);
 router.patch("/pesova/:id", updatePesova);
 router.get("/pesova", getAllPesovas);
+router.get("/", getAllPesovas);
 router.get("/pesova/:id", getPesova);
 router.post("/pesova-cover-photo/:id", upload.array('image', 1), createCoverPhoto);
 
