@@ -61,12 +61,13 @@ module.exports.createPesova = async (req, res) => {
 }
 module.exports.updatePesova = async (req, res) => {
     try {
+        console.log('body is', req.body)
         if (req.body.email) {
             return res.status(400).json({
                 message: "Can not update email"
             })
         }
-        const pesova = Pesova.findByIdAndUpdate(req.params.id, {
+        const pesova = await Pesova.findByIdAndUpdate(req.params.id, {
             ...req.body
         });
         if (req.files) {
@@ -76,11 +77,10 @@ module.exports.updatePesova = async (req, res) => {
         await pesova.save();
         console.log(pesova);
         return res.status(200).json({
-            message: "User updated successfully",
-            user: pesova
+            message: "User updated successfully"
         })
     } catch (error) {
-        // console.log(error);
+        console.log(error);
         return res.status(500).json({
             message: error
         })
