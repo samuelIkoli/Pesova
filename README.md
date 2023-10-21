@@ -160,5 +160,4 @@ Update the details of a specific user.
 
 * [Server URL](https://pesova.vercel.app/)
 
-## 🤝 The Team
 
